@@ -60,8 +60,8 @@ function [objectlocation, confidence, sstrongclassifier] = partbased_sparseboost
         imshow(I);
         sumimagedata = intimage(I);
         subplot(1, 2, 2);
-        
-       % if parameter.randompart
+         
+        % if parameter.randompart
         sstrongclassifier = partbased_detection(sstrongclassifier , sumimagedata, patches); 
         [location, confidencenow ] = partbased_maxconfidence(sstrongclassifier);
         parameter.patch = location;

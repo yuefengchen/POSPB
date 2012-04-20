@@ -93,7 +93,9 @@ function [objectlocation, confidence, sstrongclassifier] = partbased_rawboosting
         labelforupdate(7) = 1;
         patchesforupdate(8,:) = patches(numofpatches ,:);
         labelforupdate(8) = -1;
+
         sstrongclassifier = partbased_updaterawboost(sstrongclassifier, sumimagedata, patchesforupdate, labelforupdate, importance);
+
     end
  
 end

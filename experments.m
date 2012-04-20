@@ -1,4 +1,4 @@
-%{
+
 demo_spboost_boost_partbased_animal
 demo_spboost_boost_partbased_coke11
 demo_spboost_boost_partbased_david
@@ -9,6 +9,6 @@ demo_spboost_boost_partbased_faceocc2
 demo_spboost_boost_partbased_shaking
 demo_spboost_boost_partbased_surfer
 demo_spboost_boost_partbased_sylv
-%}
+
 demo_spboost_boost_partbased_tiger1
 demo_spboost_boost_partbased_tiger2

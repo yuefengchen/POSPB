@@ -31,11 +31,10 @@
 #define     OVERLAP            1
 #define     SEARCHFACTOR       2
 #define     MINFACTOR          3
-#define     ITERATIONINIT      4
-#define     NUMWEAKCLASSIFIER  5
-#define     MINAREA            6
-#define     IMGWIDTH           7
-#define     IMGHEIGHT          8
+#define     NUMWEAKCLASSIFIER  4
+#define     MINAREA            5
+#define     IMGWIDTH           6
+#define     IMGHEIGHT          7
 
 #define     TOTALSTRONGCLASSIFIER             1
 #define     TOPSTRONGCLASSIFIER               2

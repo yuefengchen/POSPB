@@ -1,11 +1,19 @@
 function  [strongclassifier, selectors, alpha] = updatesparseboost(strongclassifier, sumimagedata, patch, label, importance)
     global parameter;
-    numofpatches = size(patch, 1);
-    numofweakclassifier = parameter.numweakclassifiers;
-    %weight = zeros(numofweakclassifier, numofpatches, parameter.numselectors);
-    selectors = zeros(parameter.numselectors, 1);
-    alpha = zeros(parameter.numselectors, 1);
-    weight = haarfeatureeval(strongclassifier, sumimagedata, patch);
+    % numofpatches = size(patch, 1);
+    % numofweakclassifier = parameter.numweakclassifiers;
+    % weight = zeros(numofweakclassifier, numofpatches, parameter.numselectors);
+    % selectors = zeros(parameter.numselectors, 1);
+    % alpha = zeros(parameter.numselectors, 1);
+    % weight = haarfeatureeval(strongclassifier, sumimagedata, patch);
+    param.lambda = 0.01;
+    param.lambda2 = 0;
+    param.mode = 2;
+    param.pos = true;
+    param.L = length(label);
+    [strongclassifier, selectors, alpha] = updatesparse(strongclassifier, sumimagedata, patch, label, param);
+    
+    %{
     for i = 1:parameter.numselectors
         % for each weakclassifiers update 
         % possion sampling
@@ -40,11 +48,6 @@ function  [strongclassifier, selectors, alpha] = updatesparseboost(strongclassif
         A(:,numofweakclassifier + 1: numofweakclassifier + numofpatches) = eye(numofpatches);
         A(:,numofweakclassifier + numofpatches + 1: numofweakclassifier + 2 * numofpatches) = - eye(numofpatches);
         
-        param.lambda = 0.01;
-        param.lambda2 = 0;
-        param.mode = 2;
-        param.pos = true;
-        param.L = length(label);
        
         c = mexLasso(label, A, param);
         %c = mexLasso(W*label, W*A, param);
@@ -63,4 +66,5 @@ function  [strongclassifier, selectors, alpha] = updatesparseboost(strongclassif
        % importance(indwrong) = importance( indwrong) * sqrt((1 - minerror)/minerror);
        
     end
+    %}
 end
